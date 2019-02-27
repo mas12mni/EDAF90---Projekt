@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {WikiContentService} from '../wiki-content.service';
+import { WikiContentService } from '../wiki-content.service';
 
 @Component({
   selector: 'app-wiki',
@@ -8,12 +8,11 @@ import {WikiContentService} from '../wiki-content.service';
 })
 export class WikiComponent implements OnInit {
   abstract: string;
-  constructor(private WikiContentSerice: WikiContentService) { }
-  
+  constructor(private WikiContentSerice: WikiContentService) {}
+
   ngOnInit() {
     this.WikiContentSerice.getAbstract().subscribe((anything) => {
       this.abstract = JSON.stringify(anything);
     });
   }
-
 }
