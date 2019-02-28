@@ -100,22 +100,6 @@
     "@angular-devkit/core" "7.3.3"
     rxjs "6.3.3"
 
-"@angular/animations@^7.2.7":
-  version "7.2.7"
-  resolved "https://registry.yarnpkg.com/@angular/animations/-/animations-7.2.7.tgz#14aa9b4006dbffb08bd705842cdcc1d0b502ae90"
-  integrity sha512-eU/wSkBmukZXCCe/epUl02xsKPauF+deMbncxBE+w/NmmWjJ77Q09iZAcgzM92RVXj2LsVYQXsNEBGT3X0hRZw==
-  dependencies:
-    tslib "^1.9.0"
-
-"@angular/cdk@^7.3.3":
-  version "7.3.3"
-  resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-7.3.3.tgz#02a2ad248141cd9968a5950ce0602da3fcf5445b"
-  integrity sha512-0M3nwq+c9+d+p0XeU12I9djutlsajRrxcu7AvHQXUs/5grYFsXsX0f468qXDiKmcgqGUBNtN2fBOUhGNlispuQ==
-  dependencies:
-    tslib "^1.7.1"
-  optionalDependencies:
-    parse5 "^5.0.0"
-
 "@angular/cli@~7.3.1":
   version "7.3.3"
   resolved "https://registry.yarnpkg.com/@angular/cli/-/cli-7.3.3.tgz#b357000385aa6c75b001cb9fa7982ef3ce02c423"
@@ -184,13 +168,6 @@
   version "7.2.6"
   resolved "https://registry.yarnpkg.com/@angular/language-service/-/language-service-7.2.6.tgz#cc4fc6427667c57f3745de889d30bd751bb4c325"
   integrity sha512-iFKgaat5MZlixsO5dqy1Km3tb4q3iAU+ZPMJCk7DN419aizF38UFnQY1gCYkw3dxZLZGIkXnwy8szGXUEhra/A==
-
-"@angular/material@^7.3.3":
-  version "7.3.3"
-  resolved "https://registry.yarnpkg.com/@angular/material/-/material-7.3.3.tgz#f3f87fa90c685cfad0b6974489c69d2676199052"
-  integrity sha512-DZdJaVpXsd5QlfpN5P871llw8AKh5QvRiyro3QRmEajYN85Xiawqpbt7O60TrwcFM6DzYLI3UeyWq8LFdmi/+Q==
-  dependencies:
-    tslib "^1.7.1"
 
 "@angular/platform-browser-dynamic@~7.2.0":
   version "7.2.6"
@@ -300,6 +277,20 @@
     esutils "^2.0.2"
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
+
+"@ng-bootstrap/ng-bootstrap@^4.0.4":
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/@ng-bootstrap/ng-bootstrap/-/ng-bootstrap-4.0.4.tgz#19bf7e2bdab59e9c359b353633a5a2336410b9a5"
+  integrity sha512-77wXARMgUA0VdOAnctOlmdkeTRLESTrFpxHY8jy48FKy7DOogcq+Fs0QCBiufi5YSu8m+rmlKtoeZ8Yg9YEsbQ==
+  dependencies:
+    tslib "^1.9.0"
+
+"@ng-select/ng-select@^2.16.0":
+  version "2.16.0"
+  resolved "https://registry.yarnpkg.com/@ng-select/ng-select/-/ng-select-2.16.0.tgz#c974246cd4007bf7cb4d4e93d55bb4d299f96ab3"
+  integrity sha512-e4aYqaSQLmtYbll9zRIfZA39jFVCtUMYQvuTUTtwKpD+hhD5waCMUJ2Fv2nBp8ZYVWIUQzo0hGJ1jVvgOD/IVA==
+  dependencies:
+    tslib "^1.9.0"
 
 "@ngtools/webpack@7.3.3":
   version "7.3.3"
@@ -1092,6 +1083,11 @@ bonjour@^3.5.0:
     dns-txt "^2.0.2"
     multicast-dns "^6.0.1"
     multicast-dns-service-types "^1.1.0"
+
+bootstrap@^4.3.1:
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.3.1.tgz#280ca8f610504d99d7b6b4bfc4b68cec601704ac"
+  integrity sha512-rXqOmH1VilAt2DyPzluTi2blhk17bO7ef+zLLPlWvG494pDxcM234pJ8wTc/6R40UWizAIIMgxjvxZg5kmsbag==
 
 brace-expansion@^1.1.7:
   version "1.1.11"
@@ -4948,11 +4944,6 @@ parse5@4.0.0:
   resolved "https://registry.yarnpkg.com/parse5/-/parse5-4.0.0.tgz#6d78656e3da8d78b4ec0b906f7c08ef1dfe3f608"
   integrity sha512-VrZ7eOd3T1Fk4XWNXMgiGBK/z0MG48BWG2uQNU4I72fkQuKUTZpl+u9k+CxEG0twMVzSmXEEz12z5Fnw1jIQFA==
 
-parse5@^5.0.0:
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/parse5/-/parse5-5.1.0.tgz#c59341c9723f414c452975564c7c00a68d58acd2"
-  integrity sha512-fxNG2sQjHvlVAYmzBZS9YlDp6PTSSDwa98vkD4QgVDDCAo84z5X1t5XyJQ62ImdLXx5NdIIfihey6xpum9/gRQ==
-
 parseqs@0.0.5:
   version "0.0.5"
   resolved "https://registry.yarnpkg.com/parseqs/-/parseqs-0.0.5.tgz#d5208a3738e46766e291ba2ea173684921a8b89d"
@@ -6646,7 +6637,7 @@ ts-node@~7.0.0:
     source-map-support "^0.5.6"
     yn "^2.0.0"
 
-tslib@^1.7.1, tslib@^1.8.0, tslib@^1.8.1, tslib@^1.9.0:
+tslib@^1.8.0, tslib@^1.8.1, tslib@^1.9.0:
   version "1.9.3"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.9.3.tgz#d7e4dd79245d85428c4d7e4822a79917954ca286"
   integrity sha512-4krF8scpejhaOgqzBEcGM7yDIEfi0/8+8zDRZhNZZ2kjmHJ4hv3zCbQWxoJGz1iw5U0Jl0nma13xzHXcncMavQ==
