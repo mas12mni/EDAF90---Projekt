@@ -7,8 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class WikiContentService {
   constructor(private http: HttpClient) {}
-  getAbstract(): Observable<any> {
-    return this.http.get<any>('https://restcountries.eu/rest/v2/name/eesti');
+  getAbstract(country: string): Observable<any> {
+    return this.http.get<any>(`https://restcountries.eu/rest/v2/name/${country}`);
   }
   getFlag(): Observable<any> {
     return this.http.get<any>('https://restcountries.eu/rest/v2/name/eesti');

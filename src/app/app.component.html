@@ -1,31 +1,11 @@
-<mat-toolbar color="primary">
-  <span><mat-icon>map</mat-icon></span>
-
-  <span>World explorer 2000</span>
-
-  <div>
-    <button mat-icon-button [mat-menu-trigger-for]="menu">
-      <mat-icon>more_vert</mat-icon>
-    </button>
-    <mat-menu x-position="before" #menu="matMenu">
-      <button mat-menu-item>Option 1</button>
-      <button mat-menu-item>Option 2</button>
-    </mat-menu>
+<app-navbar></app-navbar>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-2">
+      <app-sidebar></app-sidebar>
+    </div>
+    <div class="col-10">
+      <router-outlet></router-outlet>
+    </div>
   </div>
-</mat-toolbar>
-<mat-grid-list cols="5" rowHeight="1:1">
-  <mat-grid-tile colspan="1">
-    <mat-form-field>
-      <mat-select placeholder="Select country">
-        <mat-option *ngFor="let country of countries" [value]="country">
-          {{ country }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-  </mat-grid-tile>
-  <mat-grid-tile colspan="4">
-    <app-wiki></app-wiki>
-  </mat-grid-tile>
-</mat-grid-list>
-
-<router-outlet></router-outlet>
+</div>
