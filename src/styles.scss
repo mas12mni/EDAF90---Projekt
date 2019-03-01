@@ -1,15 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import '~@ng-select/ng-select/themes/default.theme.css';
+@import '~mapbox-gl/dist/mapbox-gl.css';
+@import '~@mapbox/mapbox-gl-geocoder/lib/mapbox-gl-geocoder.css';
 
 body {
   margin: 0;
-}
-
-.col-2 {
-  background-color: bisque;
-}
-
-.col-10 {
-  background-color: chocolate;
 }
