@@ -5,9 +5,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { WikiComponent } from './wiki/wiki.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/map/Sweden', data: {}, pathMatch: 'full' },
-  { path: 'info/:name', component: WikiComponent },
-  { path: 'map/:name', component: MapComponent },
+  { path: '', redirectTo: '/info', data: {}, pathMatch: 'full' },
+  { path: 'info', component: WikiComponent },
+  { path: 'map', component: MapComponent },
   { path: '**', component: NotFoundComponent }
 ];
 

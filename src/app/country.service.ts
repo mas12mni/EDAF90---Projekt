@@ -1,13 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Observable, ReplaySubject, Subject } from 'rxjs';
 import { Country } from './country';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CountryService {
-  private selected: Subject<Country> = new Subject<Country>();
+  private selected: Subject<Country> = new ReplaySubject<Country>();
 
   constructor(private http: HttpClient) {}
 
