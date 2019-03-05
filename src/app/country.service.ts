@@ -31,4 +31,8 @@ export class CountryService {
   setSelected(country: Country) {
     this.selected.next(country);
   }
+
+  getWeather(countryName: string) {
+    return this.http.get<Country[]>(`https://restcountries.eu/rest/v2/name/${countryName}`);
+  }
 }
