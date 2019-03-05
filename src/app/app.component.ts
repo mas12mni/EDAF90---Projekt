@@ -11,9 +11,8 @@ export class AppComponent implements OnInit {
   constructor(private countryService: CountryService) {}
   ngOnInit(): void {
     const country: Country | null = JSON.parse(localStorage.getItem('country'));
-    console.log('init', country);
     if (country != null) {
-      // this.countryService.setSelected(country);
+      this.countryService.setSelected(country);
     }
   }
 }

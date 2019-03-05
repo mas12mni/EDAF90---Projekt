@@ -15,7 +15,7 @@ export class MapComponent implements OnInit {
   ngOnInit() {
     this.countryService.getSeleted().subscribe((country: Country) => {
       this.country = country;
-      this.coord = country.latlng.reverse();
+      this.coord = [country.lng, country.lat];
     });
   }
 }
