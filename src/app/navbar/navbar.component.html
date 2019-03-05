@@ -17,6 +17,7 @@
       [items]="countries | async"
       bindLabel="name"
       (change)="countryService.setSelected($event)"
+      [ngModel]="selected"
     >
     </ng-select>
   </div>

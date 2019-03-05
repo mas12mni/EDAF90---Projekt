@@ -10,10 +10,14 @@ import { Country } from '../country';
 })
 export class NavbarComponent implements OnInit {
   countries: Observable<Country[]>;
+  selected: Country;
 
   constructor(public countryService: CountryService) {}
 
   ngOnInit() {
     this.countries = this.countryService.getCountries();
+    this.countryService.getSeleted().subscribe((country: Country) => {
+      this.selected = country;
+    });
   }
 }

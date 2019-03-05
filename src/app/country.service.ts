@@ -31,5 +31,6 @@ export class CountryService {
 
   setSelected(country: Country) {
     this.selected.next(country);
+    localStorage.setItem('country', JSON.stringify(country));
   }
 }
