@@ -35,7 +35,10 @@ export class CountryService {
     localStorage.setItem('country', JSON.stringify(country));
   }
 
-  getWeather(countryName: string) {
-    return this.http.get<Country[]>(`https://restcountries.eu/rest/v2/name/${countryName}`);
+  getWeather() {
+    let selectedCountry;
+    this.getSeleted().subscribe(country => selectedCountry = country.name)
+    console.log(selectedCountry)
+    return this.http.get<Country[]>(`https://restcountries.eu/rest/v2/name/${selectedCountry}`);
   }
 }
