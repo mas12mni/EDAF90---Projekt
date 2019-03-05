@@ -8,6 +8,7 @@ import { Country } from './country';
 })
 export class CountryService {
   private selected: Subject<Country> = new ReplaySubject<Country>();
+  //https://en.wikipedia.org/w/api.php?action=query&list=search&prop=info&inprop=url&utf8=&format=json&origin=*&srlimit=20&srsearch=SEARCH_QUERY_GOES_HERE
 
   constructor(private http: HttpClient) {}
 
