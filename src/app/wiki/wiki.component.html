@@ -1,3 +1,6 @@
 <p>
   {{ abstract | async | json }}
 </p>
+<button (click)="getWikiInfo()">get wiki info</button>
+
+<div [innerHTML]="countryInfo"></div>
