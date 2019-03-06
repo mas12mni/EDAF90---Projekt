@@ -10,19 +10,18 @@ import { Observable } from 'rxjs';
 })
 export class WikiComponent implements OnInit {
   abstract: Observable<Country>;
-  countryInfo: String;
+  countryInfo: string;
   constructor(private countryService: CountryService) {}
 
   ngOnInit() {
     this.abstract = this.countryService.getSeleted();
-    
   }
 
-  getWikiInfo(){
-    this.countryService.getWiki().subscribe(data1 => {
-      let pageId = Object.keys(data1['query'].pages) 
-      console.log(data1['query'].pages[pageId])
-      this.countryInfo = data1['query'].pages[pageId].extract
+  getWikiInfo() {
+    this.countryService.getWiki().subscribe((data1) => {
+      const pageId = Object.keys(data1['query'].pages);
+      console.log(data1['query'].pages[pageId]);
+      this.countryInfo = data1['query'].pages[pageId].extract;
     });
   }
 }
