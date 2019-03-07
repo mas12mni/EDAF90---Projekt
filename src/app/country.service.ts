@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, ReplaySubject, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Country } from './country';
+import { Weather } from './weatherType';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,12 @@ export class CountryService {
           return country;
         });
       })
+    );
+  }
+
+  getTemp(lat: number, lng: number): Observable<Weather> {
+    return this.http.get<Weather>(
+      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=0c6ebd2ddedb605dc085983f4d8aaec2`
     );
   }
 
