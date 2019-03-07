@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CountryService } from '../country.service';
 import { Country } from '../country';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-wiki',
@@ -9,18 +8,16 @@ import { Observable } from 'rxjs';
   styleUrls: ['./wiki.component.scss']
 })
 export class WikiComponent implements OnInit {
-  abstract: Observable<Country>;
   countryInfo: string;
   constructor(private countryService: CountryService) {}
 
   ngOnInit() {
-    this.abstract = this.countryService.getSeleted();
+    this.countryService.getSeleted().subscribe(this.getWikiInfo.bind(this));
   }
 
-  getWikiInfo() {
-    this.countryService.getWiki().subscribe((data1) => {
+  getWikiInfo(country: Country) {
+    this.countryService.getWiki(country.name).subscribe((data1) => {
       const pageId = Object.keys(data1['query'].pages);
-      console.log(data1['query'].pages[pageId]);
       this.countryInfo = data1['query'].pages[pageId].extract;
     });
   }

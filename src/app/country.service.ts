@@ -41,12 +41,9 @@ export class CountryService {
     return this.http.get<Country[]>(`https://restcountries.eu/rest/v2/name/${selectedCountry}`);
   }
 
-  getWiki(){
-    let selectedCountry;
-    this.getSeleted().subscribe(country => selectedCountry = country.name)
-    let  wikiContentURL = `https://en.wikipedia.org/w/api.php?action=query&prop=extracts&rvprop=content&format=json&origin=*&rvsection=0&titles=${selectedCountry}`
-    return this.http.get(wikiContentURL)
+  getWiki(countryName: string) {
+    return this.http.get(
+      `https://en.wikipedia.org/w/api.php?action=query&prop=extracts&rvprop=content&format=json&origin=*&rvsection=0&titles=${countryName}`
+    );
   }
-
 }
-
