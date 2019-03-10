@@ -14,13 +14,12 @@
       <li class="nav-item">
         <a routerLink="/flights" routerLinkActive="active" class="nav-link">Flights</a>
       </li>
+      <li class="nav-item">
+        <a routerLink="/weather" routerLinkActive="active" class="nav-link">Väder</a>
+      </li>
     </ul>
-    <ng-select
-      placeholder="Select country"
-      [items]="countries | async"
-      bindLabel="name"
-      (change)="countryService.setSelected($event)"
-    >
+    <ng-select placeholder="Select country" [items]="countries | async" bindLabel="name" (change)="countryService.setSelected($event)"
+      [ngModel]="selected">
     </ng-select>
   </div>
 </nav>

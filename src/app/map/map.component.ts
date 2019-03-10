@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { CountryService } from '../country.service';
 import { Country } from '../country';
 
@@ -10,15 +9,13 @@ import { Country } from '../country';
 })
 export class MapComponent implements OnInit {
   country: Country;
+  coord: number[];
 
-  constructor(private route: ActivatedRoute, private countryService: CountryService) {}
+  constructor(private countryService: CountryService) {}
   ngOnInit() {
-    const countryName: string | null = this.route.snapshot.paramMap.get('name');
-    if (countryName != null) {
-      this.countryService.getCountry(countryName);
-    }
     this.countryService.getSeleted().subscribe((country: Country) => {
       this.country = country;
+      this.coord = [country.lng, country.lat];
     });
   }
 }

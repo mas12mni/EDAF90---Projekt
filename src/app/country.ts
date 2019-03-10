@@ -1,5 +1,7 @@
 export interface Country {
   name: string;
+  lat: number;
+  lng: number;
   topLevelDomain?: (string)[] | null;
   alpha2Code: string;
   alpha3Code: string;
