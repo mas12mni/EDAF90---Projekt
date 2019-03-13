@@ -4,6 +4,7 @@ import { Observable, ReplaySubject, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Country } from './country';
 import { Weather } from './weatherType';
+import { Airport } from './Airport';
 
 @Injectable({
   providedIn: 'root'
@@ -54,20 +55,10 @@ export class CountryService {
     );
   }
 
-  async getFlightsService() {
-    console.log("servicen funkar");
-    const token = this.getAccesTokenAmadeus();
-    const resp: any = await this.http.get('https://test.api.amadeus.com/v1/shopping/flight-destinations', { params: {origin: 'MAD'}, headers: { 'Authorization': `Bearer ${token}` } }).toPromise();
-    console.log(resp);
-
-    //return this.http.post('https://test.api.amadeus.com/v1/security/oauth2/token', 'grant_type=client_credentials&client_id=3skhuxM062gDguv5l6WKGJ83lrmF6ZaR&client_secret=7T6h0yKTtNGHbfPP', { headers: {'Content-Type': 'application/x-www-form-urlencoded' }})
+  getFlightsService(lat: number, lng: number): Observable<Airport[]> {
+    //navigator.geolocation.getCurrentPosition(console.log);
+    console.log(lat);
+  return this.http.get<Airport[]>('https://cometari-airportsfinder-v1.p.rapidapi.com/api/airports/by-radius', { params: {radius: '100', lng: `${lng}`, lat: `${lat}`}, headers: { 'X-RapidAPI-Key': 'ac2182d6f9msh39913face632fa5p1b69b2jsn73e3384b85aa' } });
 
   }
-
-  async getAccesTokenAmadeus() {
-    const resp: any = await this.http.post('https://test.api.amadeus.com/v1/security/oauth2/token', 'grant_type=client_credentials&client_id=3skhuxM062gDguv5l6WKGJ83lrmF6ZaR&client_secret=7T6h0yKTtNGHbfPP', { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).toPromise();
-    console.log(resp.access_token);
-    return resp.access_token;
-  }
-
 }
