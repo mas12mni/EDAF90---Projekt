@@ -14,8 +14,6 @@ import { Airport } from '../Airport';
 export class FlightsComponent implements OnInit {
   allAirports: any[] = [];
 
-  //nbrOfAirports: any;
-
   constructor(private countryService: CountryService) { }
 
   ngOnInit() {
@@ -23,6 +21,7 @@ export class FlightsComponent implements OnInit {
   }
 
   getFlights(country: Country): void {
+    this.allAirports = [];
 
     this.countryService.getFlightsService(country.lat, country.lng).subscribe((flygplatser: Airport[]) => {
 
@@ -44,10 +43,10 @@ export class FlightsComponent implements OnInit {
           var crd = pos.coords;
 
           var R = 6371e3; // metres
-          var φ1 = crd.latitude / (2 * Math.PI); //lat1
-          var φ2 = param.lat / (2 * Math.PI); //lat2
-          var Δφ = (param.lat - crd.latitude) / (2 * Math.PI);//lat2-lat1
-          var Δλ = (param.lng - crd.longitude) / (2 * Math.PI);//lng2-lng1  grader eller radianer???
+          var φ1 = crd.latitude * 2 * Math.PI / 360; //lat1
+          var φ2 = param.lat * 2 * Math.PI / 360; //lat2
+          var Δφ = (param.lat - crd.latitude)* 2 * Math.PI / 360;//lat2-lat1
+          var Δλ = (param.lng - crd.longitude) * 2 * Math.PI / 360;//lng2-lng1  grader eller radianer???
 
           var a = Math.sin(Δφ / 2) * Math.sin(Δφ / 2) +
             Math.cos(φ1) * Math.cos(φ2) *
