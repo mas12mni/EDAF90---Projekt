@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, ReplaySubject, Subject } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, BehaviorSubject, Subject } from 'rxjs';
+import { map, filter } from 'rxjs/operators';
 import { Country } from './country';
 import { Weather } from './weatherType';
 import { Airport } from './Airport';
@@ -10,7 +10,7 @@ import { Airport } from './Airport';
   providedIn: 'root'
 })
 export class CountryService {
-  private selected: Subject<Country> = new ReplaySubject<Country>();
+  private selected = new BehaviorSubject<Country>(null);
 
   constructor(private http: HttpClient) { }
 
@@ -34,7 +34,7 @@ export class CountryService {
   }
 
   getSeleted(): Observable<Country> {
-    return this.selected.asObservable();
+    return this.selected.asObservable().pipe(filter(country => country != null));
   }
 
   setSelected(country: Country) {
