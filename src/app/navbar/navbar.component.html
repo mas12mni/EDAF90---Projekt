@@ -12,16 +12,14 @@
         <a routerLink="/map" routerLinkActive="active" class="nav-link">Map</a>
       </li>
       <li class="nav-item">
-        <a routerLink="/weather" routerLinkActive="active" class="nav-link">Väder</a>
+        <a routerLink="/flights" routerLinkActive="active" class="nav-link">Airports</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/weather" routerLinkActive="active" class="nav-link">Weather</a>
       </li>
     </ul>
-    <ng-select
-      placeholder="Select country"
-      [items]="countries | async"
-      bindLabel="name"
-      (change)="countryService.setSelected($event)"
-      [ngModel]="selected"
-    >
+    <ng-select placeholder="Select country" [items]="countries | async" bindLabel="name" (change)="countryService.setSelected($event)"
+      [ngModel]="selected">
     </ng-select>
   </div>
 </nav>

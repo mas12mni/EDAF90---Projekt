@@ -1,0 +1,20 @@
+<div class="jumbotron" style="background-color: transparent">
+  <div class="container text-center">
+    <h1>Airports in the Country</h1>
+  </div>
+</div>
+
+<div class="container">
+  <div class="card text-center mx-auto" style="width: 50rem;">
+    <div class="card-body">
+      <h5 class="card-title">Airports</h5>
+      <h6 class="card-subtitle mb-2 text-muted">within 100km radius from the country's center</h6>
+      <li *ngFor="let flygplats of allAirports">
+        {{flygplats.airportCode}},
+        {{flygplats.city}},
+        {{flygplats.name}},
+        Distance from your location: {{flygplats.dist}} km
+      </li>
+    </div>
+  </div>
+</div>

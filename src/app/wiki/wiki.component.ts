@@ -9,6 +9,7 @@ import { Country } from '../country';
 })
 export class WikiComponent implements OnInit {
   countryInfo: string;
+  flagURL: string;
   constructor(private countryService: CountryService) {}
 
   ngOnInit() {
@@ -20,5 +21,10 @@ export class WikiComponent implements OnInit {
       const pageId = Object.keys(data1['query'].pages);
       this.countryInfo = data1['query'].pages[pageId].extract;
     });
+    
+    this.flagURL = `https://www.countryflags.io/${country.alpha2Code}/shiny/64.png`
+
+
+    //navigator.geolocation.getCurrentPosition(console.log)
   }
 }

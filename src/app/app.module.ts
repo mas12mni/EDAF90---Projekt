@@ -12,9 +12,10 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { MapComponent } from './map/map.component';
 import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
 import { WeatherComponent } from './weather/weather.component';
+import { FlightsComponent } from './flights/flights.component';
 
 @NgModule({
-  declarations: [AppComponent, WikiComponent, NavbarComponent, NotFoundComponent, MapComponent, WeatherComponent],
+  declarations: [AppComponent, WikiComponent, NavbarComponent, NotFoundComponent, MapComponent, WeatherComponent, FlightsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -1,17 +1,18 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, ReplaySubject, Subject } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, BehaviorSubject, Subject } from 'rxjs';
+import { map, filter } from 'rxjs/operators';
 import { Country } from './country';
 import { Weather } from './weatherType';
+import { Airport } from './Airport';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CountryService {
-  private selected: Subject<Country> = new ReplaySubject<Country>();
+  private selected = new BehaviorSubject<Country>(null);
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getCountries(): Observable<Country[]> {
     return this.http.get('https://restcountries.eu/rest/v2/all').pipe(
@@ -33,7 +34,7 @@ export class CountryService {
   }
 
   getSeleted(): Observable<Country> {
-    return this.selected.asObservable();
+    return this.selected.asObservable().pipe(filter(country => country != null));
   }
 
   setSelected(country: Country) {
@@ -52,5 +53,12 @@ export class CountryService {
     return this.http.get(
       `https://en.wikipedia.org/w/api.php?action=query&prop=extracts&rvprop=content&format=json&origin=*&rvsection=0&titles=${countryName}`
     );
+  }
+
+  getFlightsService(lat: number, lng: number): Observable<Airport[]> {
+    //navigator.geolocation.getCurrentPosition(console.log);
+    console.log(lat);
+  return this.http.get<Airport[]>('https://cometari-airportsfinder-v1.p.rapidapi.com/api/airports/by-radius', { params: {radius: '100', lng: `${lng}`, lat: `${lat}`}, headers: { 'X-RapidAPI-Key': 'ac2182d6f9msh39913face632fa5p1b69b2jsn73e3384b85aa' } });
+
   }
 }
